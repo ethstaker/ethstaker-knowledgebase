@@ -1,68 +1,103 @@
 # Withdrawal process explained
 
-### Staking rewards <a href="#staking-rewards" id="staking-rewards"></a>
+### Staking rewards
 
-Reward payments are automatically processed for active validator accounts with a maxed out effective balance of 32 ETH.
+Reward payments are automatically processed for active validator accounts with a maxed-out effective balance (32 ETH for legacy validators, 2048 ETH for compounding 0x02 validators).
 
-Any balance above 32 ETH earned through rewards does not actually contribute to principal, or increase the weight of this validator on the network, and is thus automatically withdrawn as a reward payment every few days. Aside from providing a withdrawal address one time, these rewards do not require any action from the validator operator. This is all initiated on the consensus layer, thus no gas (transaction fee) is required at any step.
+Any balance above the effective balance cap earned through rewards does not actually contribute to a validator’s weight on the network, and is thus automatically withdrawn as a reward payment every few days. These are called **partial withdrawals**.
 
-### Exiting staking entirely <a href="#exiting-staking-entirely" id="exiting-staking-entirely"></a>
+These automatic partial withdrawals are initiated on the consensus layer via the sweep process, which continuously scans validator indices and includes eligible withdrawals in block proposals. No action is required by the validator operator, and no gas (transaction fee) is needed.
+
+Validators using **execution-layer (0x01 or 0x02) withdrawal credentials** may also manually trigger partial withdrawals via the execution layer, using the withdrawal address (not validator keys). These **manual partial withdrawals** still require the validator to wait in the exit queue before being processed.
+
+### Exiting staking entirely
 
 Providing a withdrawal address is required before _any_ funds can be transferred out of a validator account balance.
 
-Users looking to exit staking entirely and withdraw their full balance back must also sign and broadcast a "voluntary exit" message with validator keys which will start the process of exiting from staking. This is done with your validator client and submitted to your beacon node, and does not require gas.
+Users looking to exit staking entirely and withdraw their full balance must either:
 
-The process of a validator exiting from staking takes variable amounts of time, depending on how many others are exiting at the same time. Once complete, this account will no longer be responsible for performing validator network duties, is no longer eligible for rewards, and no longer has their ETH "at stake". At this time the account will be marked as fully “withdrawable”.
+- Submit a **voluntary exit** using their validator keys (via the validator client), or  
+- Trigger a **full exit** via an **execution-layer transaction** from the withdrawal address (supported for 0x01 and 0x02 validators via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002)).
 
-Once an account is flagged as "withdrawable", and withdrawal credentials have been provided, there is nothing more a user needs to do aside from wait. Accounts are automatically and continuously swept by block proposers for eligible exited funds, and your account balance will be transferred in full (also known as a "full withdrawal") during the next [sweep](https://ethereum.org/en/staking/withdrawals/#validator-sweeping).
+Either approach initiates the validator's removal from the active set. This action does **not** require gas if done via validator keys (consensus-layer), but **does** use gas if triggered from the execution layer.
 
-### How do withdrawal payments work? <a href="#how-do-withdrawals-work" id="how-do-withdrawals-work"></a>
+The process of a validator exiting takes a variable amount of time, depending on how many others are exiting or withdrawing at the same time. All exits and EL-triggered partial withdrawals are processed in the same **exit/withdrawal queue**, which can become congested. You can check the current queue at [validatorqueue.com](https://www.validatorqueue.com/).
 
-Whether a given validator is eligible for a withdrawal or not is determined by the state of the validator account itself. No user input is needed at any given time to determine whether an account should have a withdrawal initiated or not—the entire process is done automatically by the consensus layer on a continuous loop.
+Once the validator reaches the front of the queue and completes the **withdrawability delay** (~27 hours), the validator’s full balance becomes eligible to be withdrawn.
 
-#### Validator "sweeping" <a href="#validator-sweeping" id="validator-sweeping"></a>
+At that point, there is nothing more a user needs to do. The validator is automatically swept, and its entire balance is transferred to the withdrawal address during the next [sweep](https://ethereum.org/en/staking/withdrawals/#validator-sweeping). This is known as a **full withdrawal**.
 
-When a validator is scheduled to propose the next block, it is required to build a withdrawal queue, of up to 16 eligible withdrawals. This is done by originally starting with validator index 0, determining if there is an eligible withdrawal for this account per the rules of the protocol, and adding it to the queue if there is. The validator set to propose the following block will pick up where the last one left off, progressing in order indefinitely.
+### How do withdrawal payments work?
+
+Whether a given validator is eligible for a withdrawal is determined by the state of the validator account. No user input is needed during normal operation — the process is automatically coordinated by the consensus layer.
+
+However, users with 0x01 or 0x02 withdrawal credentials may optionally **trigger withdrawals manually via the execution layer**, using their withdrawal address. This includes:
+
+- **Manual partial withdrawals** (only for 0x02)
+- **EL-triggered full exits** (for 0x01 or 0x02)
+
+These require gas and must pass through the **exit/withdrawal queue**.
+
+#### Validator "sweeping"
+
+When a validator is scheduled to propose the next block, it is required to build a withdrawal list of up to 16 eligible withdrawals. This is done by sequentially scanning validator indices, starting where the last block left off.
+
+Validators are checked for **automatic** withdrawals (either partial or full). Manual withdrawals (triggered via the EL) are not included in this sweep — they are processed directly after passing through the shared exit/withdrawal queue.
 
 !!! info "Info"
 
     Think about an analogue clock. The hand on the clock points to the hour, progresses in one direction, doesn’t skip any hours, and eventually wraps around to the beginning again after the last number is reached.\
     \
-    Now instead of 1 through 12, imagine the clock has 0 through N _(the total number of validator accounts that have ever been registered on the Beacon Chain, over 900,000 as of Jan 2024)._\
+    Now instead of 1 through 12, imagine the clock has 0 through N _(the total number of validator accounts that have ever been registered on the Beacon Chain)._\
     \
-    The hand on the clock points to the next validator that needs to be checked for eligible withdrawals. It starts at 0, and progresses all the way around without skipping any accounts. When the last validator is reached, the cycle continues back at the beginning.
+    The hand on the clock points to the next validator that needs to be checked for automatic withdrawals. It starts at 0, and progresses all the way around without skipping any accounts.
 
+**Automatic withdrawal eligibility checks:**
 
-**Checking an account for withdrawals**
+While a proposer is sweeping through validators for possible automatic withdrawals, each validator is evaluated against the following:
 
-While a proposer is sweeping through validators for possible withdrawals, each validator being checked is evaluated against a short series of questions to determine if a withdrawal should be triggered, and if so, how much ETH should be withdrawn.
+1. **Has a withdrawal address been provided?**  
+   If no withdrawal address has been provided, the validator is skipped.
 
-1. **Has a withdrawal address been provided?** If no withdrawal address has been provided, the account is skipped and no withdrawal initiated.
-2. **Is the validator exited and withdrawable?** If the validator has fully exited, and we have reached the epoch where their account is considered to be "withdrawable", then a full withdrawal will be processed. This will transfer the entire remaining balance to the withdrawal address.
-3. **Is the effective balance maxed out at 32?** If the account has withdrawal credentials, is not fully exited, and has rewards above 32 waiting, a partial withdrawal will be processed which transfers only the rewards above 32 to the user's withdrawal address.
+2. **Is the validator exited and withdrawable?**  
+   If yes, a **full withdrawal** is triggered, transferring the validator’s entire balance to the withdrawal address.
 
-There are only two actions that are taken by validator operators during the course of a validator's life cycle that influence this flow directly:
+3. **Is the validator active and its effective balance maxed out?**  
+   If yes, and the actual balance exceeds the effective balance cap, a **partial withdrawal** is made to transfer only the excess.
 
-* Provide withdrawal credentials to enable any form of withdrawal
-* Exit from the network, which will trigger a full withdrawal
+### Manual withdrawals and exits
 
-#### Gas free <a href="#gas-free" id="gas-free"></a>
+With the introduction of [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002), validators with `0x01` or `0x02` withdrawal credentials can:
 
-This approach to staking withdrawals avoids requiring stakers to manually submit a transaction requesting a particular amount of ETH to be withdrawn. This also means there is **no gas (transaction fee) required**, and withdrawals also do not compete for existing execution layer block space.
+- Trigger a **partial withdrawal** (0x02 only) from the execution layer.
+- Trigger a **full exit** (0x01 or 0x02) from the execution layer.
 
-#### How frequently will I get my staking rewards? <a href="#how-soon" id="how-soon"></a>
+These actions require an on-chain transaction from the withdrawal address and consume gas. After being submitted, they are queued in the shared **exit/withdrawal queue** and processed in order.
 
-A maximum of 16 withdrawals can be processed in a single block. At that rate, 115,200 validator withdrawals can be processed per day (assuming no missed slots). As noted above, validators without eligible withdrawals will be skipped, decreasing the time to finish the sweep.
+Once dequeued and processed by the consensus layer, the funds are transferred to the withdrawal address. These manual withdrawals **do not** wait for the sweeping cycle — they are processed directly after exiting the queue.
 
-Expanding this calculation, we can estimate the time it will take to process a given number of withdrawals:
+### Gas free
 
-| Number of withdrawals | Time to complete |
-| :-------------------: | :--------------: |
-|        800,000        |     7.0 days     |
-|        900,000        |     7.8 days     |
-|       1,000,000       |     8.7 days     |
-|       1,100,000       |     9.6 days     |
+For automatic withdrawals (partial or full), no transaction is required. This means:
 
-As you see this slows down as more validators are on the network. An increase in missed blocks could slow this down proportionally, but this will generally represent the slower side of possible outcomes.
+- **No gas (transaction fee)** is required.
+- Withdrawals do not compete for block space on the execution layer.
 
-**Source:** [**https://ethereum.org/en/staking/withdrawals/**](https://ethereum.org/en/staking/withdrawals/)
+### How frequently will I get my staking rewards?
+
+A maximum of 16 **automatic withdrawals** can be included in each consensus block. This means up to 115,200 validator withdrawals per day can be processed (assuming no missed slots).
+
+Withdrawals are only made if the validator meets the automatic withdrawal criteria. Validators without eligible balances are skipped, which increases the efficiency of the sweep.
+
+Estimated sweep duration:
+
+| Number of validators | Time to sweep once |
+|:--------------------:|:------------------:|
+|       800,000        |      7.0 days      |
+|       900,000        |      7.8 days      |
+|     1,000,000        |      8.7 days      |
+|     1,100,000        |      9.6 days      |
+
+For real-time queue status and forecasts, see [validatorqueue.com](https://www.validatorqueue.com/) or [pectrified.com](https://pectrified.com/mainnet).
+
+**Source:** [https://ethereum.org/en/staking/withdrawals/](https://ethereum.org/en/staking/withdrawals/)
