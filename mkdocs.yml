@@ -51,6 +51,7 @@ exclude_docs: |
 plugins:
   - search
   - social
+  - glightbox
   - i18n:
       # https://ultrabug.github.io/mkdocs-static-i18n/fr/setup/setting-up-languages/
       docs_structure: folder
@@ -211,6 +212,7 @@ nav:
     - MEV relay list: guides/MEV-relay-list.md
   - Upgrades:
       - Pectra Features: upgrades/pectra-features.md
+      - Glamsterdam Features: upgrades/glamsterdam-features.md
   - Get Involved: 
     - Content ideas: get-involved/content-ideas.md
     - Code of conduct: get-involved/code-of-conduct.md
