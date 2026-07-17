@@ -23,6 +23,7 @@ readme = "README.md"
 version = "1.6.1"
 dependencies = [
   "babel==2.17.0",
+  "backrefs==7.0",
   "cairocffi==1.7.1",
   "CairoSVG==2.7.1",
   "certifi==2025.1.31",
