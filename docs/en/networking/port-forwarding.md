@@ -22,6 +22,7 @@ Below are a list of the default ports that the software(s) are set to listen on.
 | [Nimbus](https://nimbus.guide/networking.html)                                                              | 9000 TCP/UDP         |
 | [Prysm](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip#incoming-p2p-connection-prerequisites)    | 12000 UDP, 13000 TCP |
 | [Teku](https://docs.teku.consensys.net/Reference/CLI/CLI-Syntax/#p2p-port)                                  | 9000 TCP/UDP         |
+| [Grandine](https://docs.grandine.io/beacon_node_api.html)                                                   | 9000 TCP/UDP         |
 
 If your node is running and the port(s) have been forwarded, you can use an online tool [such as this one](https://www.yougetsignal.com/tools/open-ports/) to check whether the ports are forwarded correctly.
 
