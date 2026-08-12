@@ -136,3 +136,7 @@ If your RPC is unavailable or otherwise inaccessible, it may show an error when 
 <figure><img src="/assets/img/gitbook/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Success! Now you can use Metamask as you normally would with the added benefit of accessing the Ethereum network through your own node 🥳
+
+## Benchmarking your RPC provider
+
+When relying on a third-party RPC endpoint as backup, use [OpenChainBench](https://openchainbench.com) to compare providers by latency and stale-state probability across multiple regions before committing. It is open-source and requires no API key.
