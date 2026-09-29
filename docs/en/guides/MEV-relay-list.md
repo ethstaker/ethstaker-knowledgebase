@@ -1,6 +1,12 @@
+# ePBS relay list for Mainnet
+
+Here is a list of ePBS relays for the Ethereum Mainnet network. These are in use after the Glamsterdam hardfork. To add one to your validator client configuration, simply copy and paste the desired relays to your validator client's builder URL parameter.
+
+No ePBS relays have been announced yet for Mainnet.
+
 # MEV relay list for Mainnet
 
-Here is a list of MEV relays for the Ethereum Mainnet network. To add one to your mev-boost configuration, simply copy and paste the *Relay URL* in your `-relays` flag value. You can add multiple relays comma-separated to the `-relays` flag, like this: `-relays https://relay1,https://relay2`. If you are using multiple relays, the current algorithm for mev-boost will select the relay that offers you the most profit. 
+Here is a list of MEV relays for the Ethereum Mainnet network. These are in use prior to the Glamsterdam hardfork. To add one to your mev-boost configuration, simply copy and paste the *Relay URL* in your `-relays` flag value. You can add multiple relays comma-separated to the `-relays` flag, like this: `-relays https://relay1,https://relay2`. If you are using multiple relays, the current algorithm for mev-boost will select the relay that offers you the most profit. 
 
 !!! info "Note"
     Clients like Prysm weigh locally built blocks with a percentage boost for comparision against submitted blocks.    
@@ -15,7 +21,6 @@ Selecting your relays **can be an important decision** for some stakers. You sho
 |-|-|-|-|-|-|-|-|-|-|-|
 | [Aestus](https://aestus.live) | No filtering and no censorship | Maximize validator payout by including all available transactions and MEV bundles | [Aestus' fork of mev-boost-relay](https://github.com/aestus-relay/mev-boost-relay) | 100% to validator | Public and permissionless. | [Dashboard](https://mainnet.aestus.live) | Yes | [Blog post](https://medium.com/@aestus_relay/introducing-the-aestus-relay-4a36f03acc31) | [Twitter](https://twitter.com/AestusRelay) [Email](mailto:contact@aestus.live) | `https://0xa15b52576bcbf1072f4a011c0f99f9fb6c66f3e1ff321f11f461d15e31b1cb359caa092c71bbded0bae5b5ea401aab7e@aestus.live` |
 | [Agnostic Gnosis](https://twitter.com/GnosisDAO) | No filtering and no censorship | Maximize validator payout by including all available transactions and MEV bundles | [Gnosis's fork of mev-boost-relay](https://github.com/gnosis/mev-boost-relay) | 100% to validator | Public and permissionless. | [Dashboard](https://agnostic-relay.net/) | Unknown | [Blog post](https://www.gnosis.io/blog/agnostic-relay-a-credibly-neutral-tool) | [Discord](http://discord.gg/gnosischain) | `https://0xa7ab7a996c8584251c8f925da3170bdfd6ebc75d50f5ddc4050a6fdc77f2a3b5fce2cc750d0865e05d7228af97d69561@agnostic-relay.net` |
-| [bloXroute Max Profit](https://bloxroute.com/) | Filters out OFAC sanctioned addresses as of [Dec 2023](https://twitter.com/bloXrouteLabs/status/1736819783520092357) (Called *Max profit* in the [documentation][3]) | Maximize validator payout without including transactions and bundles sent from/to wallet addresses that are sanctioned by OFAC | [bloXroute's fork of mev-boost-relay](https://github.com/bloXroute-Labs/mev-relay) | Unknown | Internal and external builders. External searchers. | [Dashboard](https://bloxroute.max-profit.blxrbdn.com/) | Yes | [Documentation for bloXroute relays offering](https://docs.bloxroute.com/the-merge-eth2.0/mev-relay-instructions-for-validators#relay-types) | [Discord](https://discordapp.com/invite/mB95H7s) [Email](mailto:support@bloxroute.com) | `https://0x8b5d2e73e2a3a55c6c87b8b6eb92e0149a125c852751db1422fa951e42a09b82c142c3ea98d0d9930b056a3bc9896b8f@bloxroute.max-profit.blxrbdn.com` |
 | [bloXroute Regulated](https://bloxroute.com/) | Filters out OFAC sanctioned addresses (Called *Regulated* in the [documentation][3]) | Maximize validator payout without including transactions and bundles sent from/to wallet addresses that are sanctioned by OFAC | [bloXroute's fork of mev-boost-relay](https://github.com/bloXroute-Labs/mev-relay) | Unknown | Internal and external builders. External searchers. | [Dashboard](https://bloxroute.regulated.blxrbdn.com/) | Yes | [Documentation for bloXroute relays offering](https://docs.bloxroute.com/the-merge-eth2.0/mev-relay-instructions-for-validators#relay-types) | [Discord](https://discordapp.com/invite/mB95H7s) [Email](mailto:support@bloxroute.com) | `https://0xb0b07cd0abef743db4260b0ed50619cf6ad4d82064cb4fbec9d3ec530f7c5e6793d9f286c4e082c0244ffb9f2658fe88@bloxroute.regulated.blxrbdn.com` |
 | [Titan Relay](https://docs.titanrelay.xyz/) | No filtering and no censorship | Maximize validator payout by including all available transactions and MEV bundles | [Helix](https://github.com/gattaca-com/helix) | 100% to validator | Internal and external builders. Permissionless | [Dashboard](https://titanrelay.xyz/) | Yes | [Titan Relay documentation](https://docs.titanrelay.xyz/) | [Discord](https://x.com/titanbuilderxyz) | `https://0x8c4ed5e24fe5c6ae21018437bde147693f68cda427cd1122cf20819c30eda7ed74f72dece09bb313f2a1855595ab677d@global.titanrelay.xyz` |
 | [Titan Relay Regional](https://docs.titanrelay.xyz/) | Filters out OFAC sanctioned addresses | Maximize validator payout without including transactions and bundles sent from/to wallet addresses that are sanctioned by OFAC | [Helix](https://github.com/gattaca-com/helix) | 100% to validator | Internal and external builders. Permissionless | [Dashboard](https://regional.titanrelay.xyz/) | Yes | [Titan Relay documentation](https://docs.titanrelay.xyz/) | [Discord](https://x.com/titanbuilderxyz) | `https://0x8c4ed5e24fe5c6ae21018437bde147693f68cda427cd1122cf20819c30eda7ed74f72dece09bb313f2a1855595ab677d@regional.titanrelay.xyz` |
@@ -39,6 +44,12 @@ Selecting your relays **can be an important decision** for some stakers. You sho
 * [Relays](https://beaconcha.in/relays) from beaconcha.in
 * [Relay Scan](https://www.relayscan.io) from Chris Hager
 
+# ePBS relay list for Hoodi testnet
+
+Here is a list of ePBS relays for the Ethereum Hoodi test network. These are in use after the Glamsterdam hardfork. To add one to your validator client configuration, simply copy and paste the desired relays to your validator client's builder URL parameter.
+
+No ePBS relays have been announced yet for Hoodi testnet.
+
 # MEV relay list for Hoodi testnet
 
 Here is a list of MEV relays for the Ethereum Hoodi test network. To add one to your mev-boost configuration, simply copy and paste the *Relay URL* in your `-relays` flag value. You can add multiple relays comma-separated to the `-relays` flag, like this: `-relays https://relay1,https://relay2`. If you are using multiple relays, the current algorithm for mev-boost will select the relay that offers you the most profit.
@@ -53,6 +64,14 @@ Selecting your relays **can be an important decision** for some stakers. You sho
 | [Aestus](https://hoodi.aestus.live/) | | `https://0x98f0ef62f00780cf8eb06701a7d22725b9437d4768bb19b363e882ae87129945ec206ec2dc16933f31d983f8225772b6@hoodi.aestus.live` |
 
 
+# ePBS relay list for Sepolia testnet
+
+Here is a list of ePBS relays for the Ethereum Sepolia test network. These are in use after the Glamsterdam hardfork. To add one to your validator client configuration, simply copy and paste the desired relays to your validator client's builder URL parameter.
+
+| Operator | Notes | Relay URL |
+|----------|-------|-----------|
+| [Titan](https://sepolia.titanrelay.xyz/) | | `https://sepolia.titanrelay.xyz` |
+
 # MEV relay list for Sepolia testnet
 
 Here is a list of MEV relays for the Ethereum Sepolia test network. To add one to your mev-boost configuration, simply copy and paste the *Relay URL* in your `-relays` flag value. You can add multiple relays comma-separated to the `-relays` flag, like this: `-relays https://relay1,https://relay2`. If you are using multiple relays, the current algorithm for mev-boost will select the relay that offers you the most profit.
@@ -62,6 +81,15 @@ Selecting your relays **can be an important decision** for some stakers. You sho
 | Operator | Notes | Relay URL |
 |----------|-------|-----------|
 | [Flashbots](https://www.flashbots.net/) | | `https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-sepolia.flashbots.net` |
+
+# ePBS relay list for Platåberget testnet
+
+Here is a list of ePBS relays for the Ethereum Platåberget test network. These are in use after the Glamsterdam hardfork. To add one to your validator client configuration, simply copy and paste the desired relays to your validator client's builder URL parameter.
+
+| Operator | Notes | Relay URL |
+|----------|-------|-----------|
+| [Titan](https://plataberget.titanrelay.xyz/) | | `https://plataberget.titanrelay.xyz` |
+| [Ultra Sound](https://relay-plataberget.ultrasound.money) | | `https://relay-plataberget.ultrasound.money` |
 
 # Configuring MEV boost software
 
