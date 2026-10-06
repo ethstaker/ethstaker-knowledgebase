@@ -66,21 +66,13 @@ Selecting your relays **can be an important decision** for some stakers. You sho
 
 # ePBS relay list for Sepolia testnet
 
-Here is a list of ePBS relays for the Ethereum Sepolia test network. These are in use after the Glamsterdam hardfork. To add one to your validator client configuration, simply copy and paste the desired relays to your validator client's builder URL parameter.
+Here is a list of ePBS relays for the Ethereum Sepolia test network. These are in use since the Glamsterdam hardfork. To add one to your validator client configuration, simply copy and paste the desired relays to your validator client's builder URL parameter.
 
 | Operator | Notes | Relay URL |
 |----------|-------|-----------|
 | [Titan](https://sepolia.titanrelay.xyz/) | | `https://sepolia.titanrelay.xyz` |
+| [NFlaig dev](https://builder-sepolia.nflaig.dev/) | | `https://builder-sepolia.nflaig.dev` |
 
-# MEV relay list for Sepolia testnet
-
-Here is a list of MEV relays for the Ethereum Sepolia test network. To add one to your mev-boost configuration, simply copy and paste the *Relay URL* in your `-relays` flag value. You can add multiple relays comma-separated to the `-relays` flag, like this: `-relays https://relay1,https://relay2`. If you are using multiple relays, the current algorithm for mev-boost will select the relay that offers you the most profit.
-
-Selecting your relays **can be an important decision** for some stakers. You should do your own diligence when selecting which relay you want to use.
-
-| Operator | Notes | Relay URL |
-|----------|-------|-----------|
-| [Flashbots](https://www.flashbots.net/) | | `https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-sepolia.flashbots.net` |
 
 # ePBS relay list for Platåberget testnet
 
