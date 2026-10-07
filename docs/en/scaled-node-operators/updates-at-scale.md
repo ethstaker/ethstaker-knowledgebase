@@ -62,6 +62,7 @@ Proper planning is crucial for the smooth execution of software upgrades. By inc
 * Ensure that all important data is backed up in advanced. Have a detailed, repeatable process for this. A backup is only truly a backup if you are actually able to restore it, so make sure to test the full end to end process, not just to assume that if you too a backup that it will work.
 * Make sure you talk about software upgrades in the planning session: For example, if your team uses Scrum and conducts planning every two weeks, allocate 20 minutes just to go through all the software new releases. This practice will help ensure that upgrades are prioritized and completed within the designated time frame.
 * Check for deadlines and breaking changes: When you go through the releases, make sure you check for any deadlines associated with software upgrades, such as hard forks or security patches, and plan accordingly. Also, examine the release notes for breaking changes that may require additional work or adjustments to your existing configurations. Keep in mind that some changes, like database upgrades, might be irreversible and must be rolled out with care.
+* [ChainDiff](https://github.com/ehsanhajian/chaindiff) checks whether the client release you run is safe to upgrade, and whether it meets the next network upgrade. It does not restart the node.
 
 ### 4. Automate the software upgrade process
 
