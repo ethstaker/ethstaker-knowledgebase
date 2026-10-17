@@ -77,6 +77,7 @@ Here is a list of ePBS relays for the Ethereum Sepolia test network. These are i
 
 | Operator | Notes | Relay URL |
 |----------|-------|-----------|
+| [Bombora](https://sepolia.bombora.workers.dev/) | | `https://sepolia.bombora.workers.dev` |
 | [nflaig](https://builder-sepolia.nflaig.dev/) | | `https://builder-sepolia.nflaig.dev` |
 | [Titan](https://sepolia.titanrelay.xyz/) | | `https://sepolia.titanrelay.xyz` |
 
