@@ -8,6 +8,7 @@
 
 .md-header {
   background-color: #14151a;
+  color: #fff;
 }
 .md-typeset .tabbed-set {
   border: .05rem solid var(--md-code-bg-color);

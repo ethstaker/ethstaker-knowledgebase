@@ -6,50 +6,19 @@
 /ethstaker-knowledge-base  /
 /ethstaker-knowledge-base/:splat  /:splat
 
-# french
-/french/pour-debuter/what-is-ethereum-staking  /french/getting-started/what-is-ethereum-staking
-/french/recompenses/*  /fr/recompenses/:splat
-/french/*  /fr/:splat
+# removed translations -> English at same path
+/en/*  /:splat  301
+/es/*  /:splat  301
+/fr/*  /:splat  301
+/ms/*  /:splat  301
+/nl/*  /:splat  301
+/pt/*  /:splat  301
+/tr/*  /:splat  301
 
-
-# spanish
-/spanish/claves-del-validador/*  /es/validator-keys/:splat
-/spanish/escalando-nodos/alertas-a-escala  /es/scaled-node-operators/alerting-at-scale
-/spanish/escalando-nodos/comprobando-el-estado-de-los-nodos  /es/scaled-node-operators/node-health-checks
-/spanish/escalando-nodos/mantenimiento-de-nodos  /es/scaled-node-operators/updates-at-scale
-/spanish/escalando-nodos/*  /es/scaled-node-operators/:splat
-/spanish/involucrese/codigo-de-conducta  /es/get-involved/code-of-conduct
-/spanish/involucrese/ideas-de-contenido  /es/get-involved/content-ideas
-/spanish/involucrese/*  /es/get-involved/:splat
-/spanish/hardware/hardware-examples/desktop-personalizado-snoopmx  /es/hardware/hardware-examples/custom-built-desktop
-/spanish/networking/proteccion-brute-force-ssh  /es/networking/brute-force-ssh-protection
-/spanish/para-empezar/withdrawal-proceso-explicado  /es/getting-started/withdrawal-process-explained
-/spanish/para-empezar/*  /es/getting-started/:splat
-/spanish/tutorials/actualizaciones-de-seguridad-automaticas  /es/tutorials/automatic-security-updates
-/spanish/tutorials/actualizar-credenciales-de-deposito  /es/tutorials/updating-withdrawal-credentials
-/spanish/tutorials/usa-todo-el-espacio-de-disco-disponible  /es/tutorials/confirm-available-disk-space
-/spanish/*  /es/:splat
-
-
-# malay
-/malay/tolong/*  /ms/help/:splat
-/malay/*  /ms/:splat
-
-
-# dutch
-/dutch/*  /nl/:splat
-
-
-# turkish
-/turkish/*  /tr/:splat
-
-
-# portuguese
-/portuguese/*  /pt/:splat
-
-
-# all
-/:lang/ethstaker-knowledge-base/:splat  /:lang/:splat
-/:lang/ethstaker-knowledge-base  /:lang/
-
-
+# legacy language prefixes
+/french/*  /:splat  301
+/spanish/*  /:splat  301
+/malay/*  /:splat  301
+/dutch/*  /:splat  301
+/turkish/*  /:splat  301
+/portuguese/*  /:splat  301

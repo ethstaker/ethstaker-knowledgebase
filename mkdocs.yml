@@ -1,7 +1,6 @@
 site_name: EthStaker Knowledge Base
 site_url: https://docs.ethstaker.org
 theme:
-  name: material
   custom_dir: overrides
   language: en
   palette:
@@ -43,41 +42,10 @@ exclude_docs: |
   alphabetical-ordering.sh
   requirements.txt
   README.md
-  tr/README.md
-  ma/README.md
-  fr/README.md
-  es/README.md
-  pt/README.md
 plugins:
   - search
   - social
   - glightbox
-  - i18n:
-      # https://ultrabug.github.io/mkdocs-static-i18n/fr/setup/setting-up-languages/
-      docs_structure: folder
-      languages:
-        - locale: en
-          default: true
-          name: English
-          build: true
-        - locale: es
-          name: Español
-          build: true
-        - locale: fr
-          name: Français
-          build: true
-        - locale: ms
-          name: Malay
-          build: true
-        - locale: nl
-          name: Dutch
-          build: true
-        - locale: pt
-          name: Portuguese
-          build: true
-        - locale: tr
-          name: Turkish
-          build: true
 repo_url: https://github.com/ethstaker/ethstaker-knowledgebase
 repo_name: ethstaker/ethstaker-knowledgebase
 edit_uri: edit/main/docs/
