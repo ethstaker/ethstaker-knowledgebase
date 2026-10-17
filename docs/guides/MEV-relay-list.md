@@ -52,9 +52,9 @@ Here is a list of ePBS relays for the Ethereum Hoodi test network. These are in 
 |----------|-------|-----------|
 | [Aestus](https://hoodi.aestus.live/) | | `https://hoodi.aestus.live` |
 | [Flashbots](https://boost-relay-hoodi.flashbots.net/) | | `https://boost-relay-hoodi.flashbots.net` |
+| [nflaig](https://builder-hoodi.nflaig.dev/) | | `https://builder-hoodi.nflaig.dev` |
 | [Titan](https://hoodi.titanrelay.xyz/) | | `https://hoodi.titanrelay.xyz` |
 | [Ultra Sound](https://relay-hoodi.ultrasound.money/) | | `https://relay-hoodi.ultrasound.money` |
-| [nflaig](https://builder-hoodi.nflaig.dev/) | | `https://builder-hoodi.nflaig.dev` |
 | [pk910](https://builder-hoodi.pk910.de/) | | `https://builder-hoodi.pk910.de` |
 
 # MEV relay list for Hoodi testnet
@@ -65,10 +65,10 @@ Selecting your relays **can be an important decision** for some stakers. You sho
 
 | Operator | Notes | Relay URL |
 |----------|-------|-----------|
+| [Aestus](https://hoodi.aestus.live/) | | `https://0x98f0ef62f00780cf8eb06701a7d22725b9437d4768bb19b363e882ae87129945ec206ec2dc16933f31d983f8225772b6@hoodi.aestus.live` |
 | [Bloxroute](https://bloxroute.hoodi.blxrbdn.com/) | | `https://0x821f2a65afb70e7f2e820a925a9b4c80a159620582c1766b1b09729fec178b11ea22abb3a51f07b288be815a1a2ff516@bloxroute.hoodi.blxrbdn.com` |
 | [Flashbots](https://www.flashbots.net/) | | `https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-hoodi.flashbots.net` |
 | [Titan](https://hoodi.titanrelay.xyz/) | | `https://0xaa58208899c6105603b74396734a6263cc7d947f444f396a90f7b7d3e65d102aec7e5e5291b27e08d02c50a050825c2f@hoodi.titanrelay.xyz` |
-| [Aestus](https://hoodi.aestus.live/) | | `https://0x98f0ef62f00780cf8eb06701a7d22725b9437d4768bb19b363e882ae87129945ec206ec2dc16933f31d983f8225772b6@hoodi.aestus.live` |
 
 
 # ePBS relay list for Sepolia testnet
@@ -77,8 +77,8 @@ Here is a list of ePBS relays for the Ethereum Sepolia test network. These are i
 
 | Operator | Notes | Relay URL |
 |----------|-------|-----------|
-| [Titan](https://sepolia.titanrelay.xyz/) | | `https://sepolia.titanrelay.xyz` |
 | [nflaig](https://builder-sepolia.nflaig.dev/) | | `https://builder-sepolia.nflaig.dev` |
+| [Titan](https://sepolia.titanrelay.xyz/) | | `https://sepolia.titanrelay.xyz` |
 
 
 # ePBS relay list for Platåberget testnet
