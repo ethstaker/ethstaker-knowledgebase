@@ -52,10 +52,10 @@ Here is a list of ePBS relays for the Ethereum Hoodi test network. These are in 
 |----------|-------|-----------|
 | [Aestus](https://hoodi.aestus.live/) | | `https://hoodi.aestus.live` |
 | [Flashbots](https://boost-relay-hoodi.flashbots.net/) | | `https://boost-relay-hoodi.flashbots.net` |
-| [nflaig](https://builder-hoodi.nflaig.dev/) | | `https://builder-hoodi.nflaig.dev` |
-| [pk910](https://builder-hoodi.pk910.de/) | | `https://builder-hoodi.pk910.de` |
 | [Titan](https://hoodi.titanrelay.xyz/) | | `https://hoodi.titanrelay.xyz` |
 | [Ultra Sound](https://relay-hoodi.ultrasound.money/) | | `https://relay-hoodi.ultrasound.money` |
+| [nflaig](https://builder-hoodi.nflaig.dev/) | | `https://builder-hoodi.nflaig.dev` |
+| [pk910](https://builder-hoodi.pk910.de/) | | `https://builder-hoodi.pk910.de` |
 
 # MEV relay list for Hoodi testnet
 
@@ -77,13 +77,13 @@ Here is a list of ePBS relays for the Ethereum Sepolia test network. These are i
 
 | Operator | Notes | Relay URL |
 |----------|-------|-----------|
-| [nflaig](https://builder-sepolia.nflaig.dev/) | | `https://builder-sepolia.nflaig.dev` |
 | [Titan](https://sepolia.titanrelay.xyz/) | | `https://sepolia.titanrelay.xyz` |
+| [nflaig](https://builder-sepolia.nflaig.dev/) | | `https://builder-sepolia.nflaig.dev` |
 
 
 # ePBS relay list for Platåberget testnet
 
-Here is a list of ePBS relays for the Ethereum Platåberget test network. These are in use after the Glamsterdam hardfork. To add one to your validator client configuration, simply copy and paste the desired relays to your validator client's builder URL parameter.
+Here is a list of ePBS relays for the Ethereum Platåberget test network. These are in use since the Glamsterdam hardfork. To add one to your validator client configuration, simply copy and paste the desired relays to your validator client's builder URL parameter.
 
 | Operator | Notes | Relay URL |
 |----------|-------|-----------|
