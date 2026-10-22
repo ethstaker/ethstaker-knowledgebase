@@ -27,3 +27,15 @@ To fix, either increase the queries limit value or exclude your node from Pihole
 If you encounter difficulty making the deposit transaction, enable blind signing and contract data.
 
 </details>
+
+<details>
+
+<summary>I have the client logs. What failed?</summary>
+
+[chainlog-ai ↗](https://github.com/ehsanhajian/chainlog-ai) reads the execution, consensus, validator, and Kubernetes logs you already have and states a cause that cites those lines. It does not restart a client or sign with a validator key.
+
+```bash
+pip install chainlog-ai
+```
+
+</details>
