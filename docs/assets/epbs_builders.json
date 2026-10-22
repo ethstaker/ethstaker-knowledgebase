@@ -30,7 +30,7 @@
           "name": "nflaig",
           "url": "https://builder-sepolia.nflaig.dev",
           "trustless_bids": true,
-          "trusted_bids": true
+          "trusted_bids": false
         },
         {
           "name": "Titan",
@@ -65,7 +65,7 @@
           "name": "nflaig",
           "url": "https://builder-hoodi.nflaig.dev",
           "trustless_bids": true,
-          "trusted_bids": true
+          "trusted_bids": false
         },
         {
           "name": "Titan",
