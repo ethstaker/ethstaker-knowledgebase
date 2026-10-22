@@ -1,0 +1,107 @@
+{
+  "networks": [
+    {
+      "network": "plataberget",
+      "builders": [
+        {
+          "name": "Titan",
+          "url": "https://plataberget.titanrelay.xyz",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+        {
+          "name": "Ultra Sound",
+          "url": "https://relay-plataberget.ultrasound.money",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        }
+      ]
+    },
+    {
+      "network": "sepolia",
+      "builders": [
+        {
+          "name": "Bombora",
+          "url": "https://sepolia.bombora.workers.dev",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+        {
+          "name": "nflaig",
+          "url": "https://builder-sepolia.nflaig.dev",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+        {
+          "name": "Titan",
+          "url": "https://sepolia.titanrelay.xyz",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        }
+      ]
+    },
+    {
+      "network": "hoodi",
+      "builders": [
+        {
+          "name": "Aestus",
+          "url": "https://hoodi.aestus.live",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+        {
+          "name": "Bombora",
+          "url": "https://hoodi.bombora.network",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+        {
+          "name": "Flashbots",
+          "url": "https://boost-relay-hoodi.flashbots.net",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+        {
+          "name": "nflaig",
+          "url": "https://builder-hoodi.nflaig.dev",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+        {
+          "name": "Titan",
+          "url": "https://hoodi.titanrelay.xyz",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+        {
+          "name": "Ultra Sound",
+          "url": "https://relay-hoodi.ultrasound.money",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": true
+        },
+          "name": "pk910",
+          "url": "https://builder-hoodi.pk910.de",
+          "auth_data": "",
+          "trustless_bids": true,
+          "trusted_bids": false
+        }
+      ]
+    },
+    {
+      "network": "mainnet",
+      "builders": [
+      ]
+    }
+  ]
+}
