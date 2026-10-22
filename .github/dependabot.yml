@@ -17,13 +17,3 @@ updates:
       uv-deps:
         patterns:
           - "*"
-  - package-ecosystem: "github-actions"
-    cooldown:
-      default-days: 7
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    groups:
-      actions-deps:
-        patterns:
-          - "*"
