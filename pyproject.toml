@@ -22,7 +22,7 @@ description = "Ethstaker Knowledge Base"
 readme = "README.md"
 version = "2.0.0"
 dependencies = [
-  "zensical>=0.0.71"
+  "zensical>=0.1.0"
 ]
 requires-python = ">=3.11,<4"
 
